@@ -33,24 +33,23 @@ namespace ListOfObjects
         
         static void Main(string[] args)
         {
-            string filePath = @"/Users/katlinpaju/Demo/people.rtf";
+            string filePath = @"/Users/katlinpaju/Demo/file.txt";
             List<string> listOfPeople = File.ReadAllLines(filePath).ToList();
             List<Person> listOfPersonObjects= new List<Person>();
 
             foreach (string Line in listOfPeople)
             {
                 string[]tempArray=Line.Split(new char[] {',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                
-                //Person newPerson=new Person(tempArray[0],tempArray[1],int.Parse(tempArray[2]));
-                //listOfPersonObjects.Add(newPerson);
+                Person newPerson=new Person(tempArray[0],tempArray[1],int.Parse(tempArray[2]));
+                listOfPersonObjects.Add(newPerson);
 
 
             }
 
-            /*foreach (Person person in listOfPersonObjects)
+            foreach (Person person in listOfPersonObjects)
             {
                 Console.WriteLine($"{person.firstname} {person.lastname} age {person.age} is on your list.");
-            }*/
+            }
             
         }
     }
